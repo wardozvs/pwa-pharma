@@ -58,12 +58,26 @@ Copia la **Public Key** como `VAPID_PUBLIC_KEY`
 
 1. Ve a tu proyecto en [vercel.com](https://vercel.com)
 2. Navega a **Settings** → **Environment Variables**
-3. Agrega las tres variables:
-   - `SUPABASE_URL`
-   - `SUPABASE_ANON_KEY`
-   - `VAPID_PUBLIC_KEY`
+3. Agrega **exactamente** las tres variables (sin referencias @):
 
-4. Haz redeploy para que los cambios tomen efecto
+   | Variable | Value |
+   |----------|-------|
+   | `SUPABASE_URL` | `https://your-project.supabase.co` |
+   | `SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` |
+   | `VAPID_PUBLIC_KEY` | `BKey...` |
+
+4. **Importante**: Deja los valores vagos en los "Environments" seleccionados:
+   - ☑ Production
+   - ☑ Preview  
+   - ☑ Development
+
+5. Click en **Save**
+6. Haz un redeploy de tu proyecto:
+   - Ve a la pestaña **Deployments**
+   - Click en el último deployment (el que falló)
+   - Click en **Redeploy**
+   - Selecciona "Use existing Environment Variables"
+   - Confirma
 
 ---
 
