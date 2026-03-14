@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 /**
  * SupabaseService manages connection to Supabase for database operations
@@ -27,17 +28,27 @@ export class SupabaseService {
       return;
     }
 
-    const supabaseUrl = 'https://your-project.supabase.co'; // Replace with your Supabase URL
-    const supabaseAnonKey = 'your-anon-key'; // Replace with your Supabase anon key
+    // Get environment variables from environment config
+    const supabaseUrl = environment.supabase.url;
+    const supabaseAnonKey = environment.supabase.anonKey;
 
-    // Only initialize if we have valid URLs (not placeholders)
+    // Only initialize if we have valid URLs (not placeholders or empty)
     if (
       supabaseUrl &&
-      supabaseUrl !== 'https://your-project.supabase.co' &&
+      supabaseUrl.trim().length > 0 &&
+      supabaseUrl.startsWith('https://') &&
       supabaseAnonKey &&
-      supabaseAnonKey !== 'your-anon-key'
+      supabaseAnonKey.trim().length > 20
     ) {
-      this.supabase = createClient(supabaseUrl, supabaseAnonKey);
+      try {
+        this.supabase = createClient(supabaseUrl, supabaseAnonKey);
+        console.log('✓ Supabase initialized successfully');
+      } catch (error) {
+        console.error('✗ Failed to initialize Supabase:', error);
+      }
+    } else {
+      console.log('⚠ Supabase not configured. Set SUPABASE_URL and SUPABASE_ANON_KEY environment variables.');
+      console.log('  App will work offline with localStorage.');
     }
   }
 

@@ -3,15 +3,9 @@
   "framework": "angular",
   "outputDirectory": "dist/PharmaManager/browser",
   "env": {
-    "SUPABASE_URL": {
-      "description": "Supabase project URL"
-    },
-    "SUPABASE_ANON_KEY": {
-      "description": "Supabase anonymous key for client-side access"
-    },
-    "VAPID_PUBLIC_KEY": {
-      "description": "Public VAPID key for push notifications"
-    }
+    "SUPABASE_URL": "@supabase_url",
+    "SUPABASE_ANON_KEY": "@supabase_anon_key",
+    "VAPID_PUBLIC_KEY": "@vapid_public_key"
   },
   "headers": [
     {
