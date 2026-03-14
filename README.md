@@ -1,59 +1,70 @@
-# PharmaManager
+﻿# PharmaManager - PWA de Gestión de Medicamentos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+Una aplicación web progresiva (PWA) moderna para gestionar tu inventario de medicamentos con sincronización en tiempo real, notificaciones de caducidad y soporte offline.
 
-## Development server
+## 🎯 Funcionalidades
 
-To start a local development server, run:
+- **Gestión de Medicamentos**: Registra medicamentos con nombre, dosis (mg), cantidad de tabletas y fecha de caducidad
+- **Escaneo de Códigos de Barras**: Usa la cámara de tu dispositivo para escanear códigos de barras
+- **Notificaciones Inteligentes**: Recibe notificaciones automáticas cuando un medicamento está próximo a caducar (60 días)
+- **Sincronización Remota**: Conecta con Supabase para sincronizar datos en múltiples dispositivos
+- **Soporte Offline**: Accede a tus medicamentos incluso sin conexión a internet
+- **Pantalla de Splash**: Diseño atractivo con animación de carga
+- **Interfaz Responsiva**: Funciona perfectamente en desktop y mobile
 
-```bash
-ng serve
-```
+## 🛠️ Tecnologías
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular 19+**: Framework base
+- **Angular SSR (Universal)**: Renderización en servidor
+- **Angular PWA**: Conversión en Progressive Web App
+- **Supabase**: Base de datos y autenticación
+- **Tailwind CSS**: Estilos
+- **date-fns**: Manipulación de fechas
+- **RxJS**: Manejo de datos reactivos
 
-## Code scaffolding
+## 📋 Requisitos Previos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js 18+
+- npm 9+
 
-```bash
-ng generate component component-name
-```
+## 🚀 Instalación Local
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 1. Clonar el repositorio
 
-```bash
-ng generate --help
-```
+\\\ash
+git clone <tu-repo-url>
+cd PharmaManager
+\\\
 
-## Building
+### 2. Instalar dependencias
 
-To build the project run:
+\\\ash
+npm install
+\\\
 
-```bash
-ng build
-```
+### 3. Ejecutar la aplicación
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+\\\ash
+npm start
+\\\
 
-## Running unit tests
+La aplicación estará disponible en \http://localhost:4200\
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🚀 Deployment en Vercel
 
-```bash
-ng test
-```
+1. Conecta tu repositorio GitHub en [vercel.com](https://vercel.com)
+2. Configura las variables de entorno:
+   - SUPABASE_URL
+   - SUPABASE_ANON_KEY
+   - VAPID_PUBLIC_KEY
+3. Vercel detectará automáticamente la configuración de Angular y realizará el deploy
 
-## Running end-to-end tests
+## 📱 Instalación como PWA
 
-For end-to-end (e2e) testing, run:
+1. Abre la aplicación en un navegador compatible
+2. Busca la opción "Instalar" o "Agregar a pantalla de inicio"
+3. Confirma la instalación
 
-```bash
-ng e2e
-```
+## 📄 Licencia
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT - Libre para usar y modificar
